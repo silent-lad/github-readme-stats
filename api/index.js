@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
     border_radius,
     border_color,
   } = req.query;
-  res.setHeader("Content-Type", "image/svg+xml");
+  res.setHeader("Content-Type", "application/json");
 
   if (blacklist.includes(username)) {
     return res.send(renderError("Something went wrong"));
@@ -60,7 +60,7 @@ module.exports = async (req, res) => {
     res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
     console.log(stats);
     
-     return res.send(JSON.stringify(stats));
+     return res.json(stats);
   } catch (err) {
     return res.send(renderError(err.message, err.secondaryMessage));
   }
