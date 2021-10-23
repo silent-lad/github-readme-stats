@@ -5,10 +5,5 @@
       "maxDuration": 5
     }
   },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/api"
-    }
-  ]
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
 }
